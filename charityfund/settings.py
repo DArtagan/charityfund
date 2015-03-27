@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ.get('DEBUG', False))
 TEMPLATE_DEBUG = bool(os.environ.get('DEBUG', False))
 
-ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split()
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(', ')
 
 
 # Application definition
@@ -44,9 +44,7 @@ WSGI_APPLICATION = 'charityfund.wsgi.application'
 
 # Database
 DATABASES = {
-        'default': dj_database_url.config(
-            default='sqlite://' + os.path.join(BASE_DIR, 'db.sqlite3')
-        ),
+        'default': dj_database_url.config(default='sqlite://../db.sqlite3'),
 }
 
 # Internationalization
